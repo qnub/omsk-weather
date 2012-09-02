@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import os
 import urllib2
 from xml.dom import minidom
 from datetime import datetime
@@ -10,19 +11,21 @@ import gobject
 import gtk
 import appindicator
 
-logging.basicConfig(level=logging.DEBUG)
-WEATHER_LINK = 'http://dove.omsk.otpbank.ru/files/weather.xml'
-WEATHER_METRIC = u'°C'
-WEATHER_UPDATE_TIMEOUT = 1000 * 60 * 15  # every 15 min
-MENU_LABEL = u'Обновить'
+from settings import *
+
+
+VERSION = 0.2
 LASTUPDATE = None
+WEATHER_UPDATE_TIMEOUT = 1000 * 60 * WEATHER_UPDATE_TIMEOUT
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 def update_weather(w, ind):
     try:
         xml = minidom.parseString(urllib2.urlopen(WEATHER_LINK).read())
         result = xml.getElementsByTagName(
-            'temperature')[0].childNodes[0].data
+            TEMP_TAG_NAME)[TEMP_TAG_NUMBER].childNodes[0].data
     except:
         result = None
 
@@ -37,14 +40,20 @@ def update_weather(w, ind):
         LASTUPDATE = time
 
         menu.set_label(
-            u'Обновлено: {0}'.format(time.strftime(dt_template))
+            u'{0}: {1}'.format(UPDATE_LABEL, time.strftime(dt_template))
         )
     elif LASTUPDATE and LASTUPDATE.date.day < time.date.day:
         dt_template = '%x ' + dt_template
 
         menu.set_label(
-            u'Обновлено: {0}'.format(time.strftime(dt_template))
+            u'{0}: {1}'.format(UPDATE_LABEL, time.strftime(dt_template))
         )
+
+    return True
+
+
+def open_schedule(w):
+    os.system('xdg-open ' + WEATHER_SCHEDULE_LINK)
 
     return True
 
@@ -59,16 +68,17 @@ if __name__ == '__main__':
     # create a menu
     menu = gtk.Menu()
 
-    menu_item = gtk.MenuItem(MENU_LABEL)
+    menu_update = gtk.MenuItem(MENU_LABEL)
+    menu_update.connect('activate', update_weather, ind)
+    menu.append(menu_update)
 
-    menu.append(menu_item)
-
-    # this is where you would connect your menu item up with a function:
-
-    menu_item.connect('activate', update_weather, ind)
+    menu_schedule = gtk.MenuItem(MENU_SCHEDULE_LABEL)
+    menu_schedule.connect('activate', open_schedule)
+    menu.append(menu_schedule)
 
     # show the items
-    menu_item.show()
+    menu_update.show()
+    menu_schedule.show()
 
     ind.set_menu(menu)
 
