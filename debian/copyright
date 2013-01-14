@@ -1,0 +1,10 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: omweather
+Upstream-Contact: qnub <qnub.ru@gmail.com>
+Source: UNKNOWN
+
+Files: *
+Copyright: (C) 2012-2013 qnub <qnub.ru@gmail.com>
+License: GPL-3
+ The full text of the GPL is distributed in
+ /usr/share/common-licenses/GPL-3 on Debian systems.

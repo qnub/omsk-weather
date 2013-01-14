@@ -1,0 +1,4 @@
+project = omweather
+version = 12.08.1
+template = ubuntu-application
+ppa = utils

@@ -1,0 +1,8 @@
+[Desktop Entry]
+_Name=Omweather
+_Comment=Omweather application
+Categories=GNOME;Utility;
+Exec=omweather
+Icon=omweather
+Terminal=false
+Type=Application

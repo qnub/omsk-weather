@@ -1,0 +1,19 @@
+Source: omweather
+Section: python
+Priority: extra
+Build-Depends: debhelper (>= 8),
+ python (>= 2.6.6-3~),
+ python-distutils-extra (>= 2.10)
+Maintainer: qnub <qnub.ru@gmail.com>
+Standards-Version: 3.9.3
+X-Python-Version: >= 2.6
+
+Package: omweather
+Architecture: all
+Depends: ${misc:Depends},
+ ${python:Depends},
+ gir1.2-glib-2.0,
+ gir1.2-gtk-3.0,
+ gir1.2-appindicator3-0.1
+Description: Tray widget with air temperature in Omsk, Russia
+ Show current air temperature in Russia, Omsk.
