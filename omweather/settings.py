@@ -20,6 +20,7 @@ DEFAULT = {
     'MENU_SCHEDULE_LABEL': u'Прогноз',
     'MENU_AUTOSTART_ON_LABEL': u'Включить автостарт',
     'MENU_AUTOSTART_OFF_LABEL': u'Выключить автостарт',
+    'MENU_QUIT_LABEL': u'Выход',
     'UPDATE_LABEL': u'Обновлено',
     'WEATHER_SCHEDULE_LINK': 'http://pogoda.yandex.ru/omsk/',
     'WEATHER_METRIC': u'°C',

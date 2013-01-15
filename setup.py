@@ -127,7 +127,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
 
 DistUtilsExtra.auto.setup(
     name='omweather',
-    version='0.4.1-public1',
+    version='0.5-public1',
     license='LGPL-3',
     author='qnub',
     author_email='qnub.ru@gmail.com',

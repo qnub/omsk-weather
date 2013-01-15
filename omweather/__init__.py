@@ -112,6 +112,13 @@ def switch_autostart(w):
         w.set_label(settings.MENU_AUTOSTART_ON_LABEL)
 
 
+def quit(w):
+    """
+    Quit widget
+    """
+    exit()
+
+
 def main():
     parse_options()
     WEATHER_UPDATE_TIMEOUT = 1000 * 60 * settings.WEATHER_UPDATE_TIMEOUT
@@ -128,18 +135,23 @@ def main():
     menu_update.connect('activate', update_weather, ind)
     menu.append(menu_update)
 
-    menu_autostart = Gtk.MenuItem(autostart_label())
-    menu_autostart.connect('activate', switch_autostart)
-    menu.append(menu_autostart)
-
     menu_schedule = Gtk.MenuItem(settings.MENU_SCHEDULE_LABEL)
     menu_schedule.connect('activate', open_schedule)
     menu.append(menu_schedule)
 
+    menu_autostart = Gtk.MenuItem(autostart_label())
+    menu_autostart.connect('activate', switch_autostart)
+    menu.append(menu_autostart)
+
+    menu_quit = Gtk.MenuItem(settings.MENU_QUIT_LABEL)
+    menu_quit.connect('activate', quit)
+    menu.append(menu_quit)
+
     # show the items
     menu_update.show()
-    menu_autostart.show()
     menu_schedule.show()
+    menu_autostart.show()
+    menu_quit.show()
 
     ind.set_menu(menu)
 
