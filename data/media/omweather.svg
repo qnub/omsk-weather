@@ -7,6 +7,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="64"
@@ -14,24 +15,42 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="icon.svg"
+   sodipodi:docname="omweather.svg"
    inkscape:export-filename="/media/candybober/project/quickly/OmWeather/omsk-weather/icons/icon-128x128.png"
    inkscape:export-xdpi="180"
    inkscape:export-ydpi="180">
   <defs
      id="defs4">
-    <filter
-       inkscape:collect="always"
-       id="filter3818"
-       x="-0.27300432"
-       width="1.5460086"
-       y="-0.23864663"
-       height="1.4772933">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="1.4373393"
-         id="feGaussianBlur3820" />
-    </filter>
+    <linearGradient
+       id="linearGradient5277">
+      <stop
+         id="stop5279"
+         offset="0"
+         style="stop-color:#ffffdf;stop-opacity:1" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.20081967;"
+         offset="0.71787971"
+         id="stop5281" />
+      <stop
+         id="stop5283"
+         offset="1"
+         style="stop-color:#000000;stop-opacity:0;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3787">
+      <stop
+         style="stop-color:#ffffdf;stop-opacity:1;"
+         offset="0"
+         id="stop3789" />
+      <stop
+         id="stop5243"
+         offset="0.25473779"
+         style="stop-color:#ffffff;stop-opacity:0.20081967;" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop3791" />
+    </linearGradient>
     <filter
        inkscape:collect="always"
        id="filter3852"
@@ -44,6 +63,62 @@
          stdDeviation="4.0174891"
          id="feGaussianBlur3854" />
     </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3779"
+       x="-0.50669613"
+       width="2.0133923"
+       y="-0.44292825"
+       height="1.8858565">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.6677024"
+         id="feGaussianBlur3781" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3787"
+       id="linearGradient5239"
+       x1="36.2761"
+       y1="950.62097"
+       x2="55.816219"
+       y2="980.34076"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="pad" />
+    <filter
+       inkscape:collect="always"
+       id="filter5245"
+       x="-0.089115796"
+       width="1.1782316"
+       y="-0.1270308"
+       height="1.2540616">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.6702065"
+         id="feGaussianBlur5247" />
+    </filter>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5277"
+       id="radialGradient5275"
+       cx="25.84034"
+       cy="1015.0977"
+       fx="25.84034"
+       fy="1015.0977"
+       r="30"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:collect="always"
+       id="filter5289"
+       x="-0.19525424"
+       width="1.3905085"
+       y="-0.19525424"
+       height="1.3905085">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.8813559"
+         id="feGaussianBlur5291" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -52,9 +127,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="12.954993"
-     inkscape:cx="33.915388"
-     inkscape:cy="35.250439"
+     inkscape:zoom="3.2387483"
+     inkscape:cx="-34.419757"
+     inkscape:cy="0.1958933"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -71,7 +146,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -89,12 +164,21 @@
        y="992.68652"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       y="990.0379"
+       x="2.3243241"
+       height="60"
+       width="60"
+       id="rect5265"
+       style="fill:url(#radialGradient5275);fill-opacity:1;stroke:none;opacity:0.57044674;filter:url(#filter5289)" />
     <g
        id="g3864"
        transform="translate(2,-4)">
       <text
          xml:space="preserve"
-         style="font-size:25.17316818px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter3818);font-family:Sans"
+         style="font-size:25.17316818000000112px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffff72;fill-opacity:1;stroke:none;font-family:Sans;filter:url(#filter3779)"
          x="0.71452785"
          y="1180.6204"
          id="text3786"
@@ -110,7 +194,7 @@
          id="text3753"
          y="1180.6204"
          x="0.71452785"
-         style="font-size:25.17316818px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         style="font-size:25.17316818000000112px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffa8;fill-opacity:0.93032789;stroke:none;font-family:Sans"
          xml:space="preserve"><tspan
            y="1180.6204"
            x="0.71452785"
@@ -122,7 +206,7 @@
        transform="translate(-2,0)">
       <text
          xml:space="preserve"
-         style="font-size:56.34286499px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter3852);font-family:Sans"
+         style="font-size:56.34286499000000248px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#81cdff;fill-opacity:1;stroke:none;filter:url(#filter3852);font-family:Sans"
          x="14.9844"
          y="977.07465"
          id="text3822"
@@ -149,6 +233,19 @@
                x="19.2647"
                id="tspan3759"
                sodipodi:role="line">m</tspan></text>
+          <text
+             xml:space="preserve"
+             style="font-size:56.34286499px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;opacity:0.49140894;fill:url(#linearGradient5239);fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter5245);font-family:Sans"
+             x="19.2647"
+             y="977.07465"
+             id="text3783"
+             sodipodi:linespacing="125%"
+             transform="matrix(0.93451349,0,0,1.0700755,-0.30876126,-0.61752252)"><tspan
+               sodipodi:role="line"
+               id="tspan3785"
+               x="19.2647"
+               y="977.07465"
+               style="fill:url(#linearGradient5239);fill-opacity:1;fill-rule:evenodd">m</tspan></text>
         </g>
       </g>
     </g>

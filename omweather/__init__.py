@@ -1,16 +1,16 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 ### BEGIN LICENSE
 # Copyright (C) 2012-2013 qnub <qnub.ru@gmail.com>
-# This program is free software: you can redistribute it and/or modify it 
-# under the terms of the GNU General Public License version 3, as published 
+# This program is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License version 3, as published
 # by the Free Software Foundation.
-# 
-# This program is distributed in the hope that it will be useful, but 
-# WITHOUT ANY WARRANTY; without even the implied warranties of 
-# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR 
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranties of
+# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 # PURPOSE.  See the GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License along 
+#
+# You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 ### END LICENSE
 
@@ -20,13 +20,14 @@ import os
 import urllib2
 from xml.dom import minidom
 from datetime import datetime
+from shutil import copyfile
 
 from locale import gettext as _
 from gi.repository import Gtk  # pylint: disable=E0611
 from gi.repository import GObject
 from gi.repository import AppIndicator3
 
-from settings import Settings
+from settings import settings
 
 from omweather_lib import set_up_logging, get_version
 
@@ -35,7 +36,9 @@ LASTUPDATE = None
 
 
 def parse_options():
-    """Support for command line options"""
+    """
+    Support for command line options
+    """
     parser = optparse.OptionParser(version="%%prog %s" % get_version())
     parser.add_option(
         "-v", "--verbose", action="count", dest="verbose",
@@ -46,6 +49,9 @@ def parse_options():
 
 
 def update_weather(w, ind):
+    """
+    Update temperature
+    """
     try:
         xml = minidom.parseString(urllib2.urlopen(settings.WEATHER_LINK).read())
         result = xml.getElementsByTagName(
@@ -79,15 +85,44 @@ def update_weather(w, ind):
 
 
 def open_schedule(w):
+    """
+    Open weather schedule in browser
+    """
     os.system('xdg-open ' + settings.WEATHER_SCHEDULE_LINK)
 
     return True
 
 
+def autostart_label():
+    """
+    Check is autostart enabled
+    """
+    if os.path.exists(os.path.expanduser('~/.config/autostart/omweather.desktop')):
+        return settings.MENU_AUTOSTART_OFF_LABEL
+    else:
+        return settings.MENU_AUTOSTART_ON_LABEL
+
+
+def switch_autostart(w):
+    """
+    Switch autostart option
+    """
+    label = autostart_label()
+    autostart_path = os.path.expanduser('~/.config/autostart/omweather.desktop')
+
+    if label == settings.MENU_AUTOSTART_ON_LABEL:
+        try:
+            copyfile('/usr/share/applications/omweather.desktop',
+                autostart_path)
+            w.set_label(settings.MENU_AUTOSTART_OFF_LABEL)
+        except IOError:
+            w.set_label(settings.MENU_AUTOSTART_ON_LABEL)
+    else:
+        os.unlink(autostart_path)
+
+
 def main():
     parse_options()
-    global settings
-    settings = Settings()
     WEATHER_UPDATE_TIMEOUT = 1000 * 60 * settings.WEATHER_UPDATE_TIMEOUT
     ind = AppIndicator3.Indicator.new('om_weather_client',
                           'om_weather_client_icon',
@@ -102,12 +137,17 @@ def main():
     menu_update.connect('activate', update_weather, ind)
     menu.append(menu_update)
 
+    menu_autostart = Gtk.MenuItem(autostart_label())
+    menu_autostart.connect('activate', switch_autostart)
+    menu.append(menu_autostart)
+
     menu_schedule = Gtk.MenuItem(settings.MENU_SCHEDULE_LABEL)
     menu_schedule.connect('activate', open_schedule)
     menu.append(menu_schedule)
 
     # show the items
     menu_update.show()
+    menu_autostart.show()
     menu_schedule.show()
 
     ind.set_menu(menu)

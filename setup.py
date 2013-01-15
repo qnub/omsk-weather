@@ -2,16 +2,16 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 ### BEGIN LICENSE
 # Copyright (C) 2012-2013 qnub <qnub.ru@gmail.com>
-# This program is free software: you can redistribute it and/or modify it 
-# under the terms of the GNU General Public License version 3, as published 
+# This program is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License version 3, as published
 # by the Free Software Foundation.
-# 
-# This program is distributed in the hope that it will be useful, but 
-# WITHOUT ANY WARRANTY; without even the implied warranties of 
-# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR 
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranties of
+# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 # PURPOSE.  See the GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License along 
+#
+# You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 ### END LICENSE
 
@@ -134,15 +134,15 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
 ###################### YOU SHOULD MODIFY ONLY WHAT IS BELOW ######################
 ##################################################################################
 
+
 DistUtilsExtra.auto.setup(
     name='omweather',
-    version='0.3.1-public4',
-    license='GPL-3',
+    version='0.4',
+    license='LGPL-3',
     author='qnub',
     author_email='qnub.ru@gmail.com',
     description='Tray widget with air temperature in Omsk, Russia',
     long_description='Show current air temperature in Russia, Omsk.',
-    # url='https://launchpad.net/omweather',
+    url='http://qnub.github.com/omsk-weather/',
     cmdclass={'install': InstallAndUpdateDataDirectory}
     )
-
