@@ -1,3 +1,15 @@
+omweather (0.4.1-public1) quantal; urgency=low
+
+  * New release.
+
+ -- Vadim Lopatyuk <qnub.ru@gmail.com>  Tue, 15 Jan 2013 17:46:27 +0700
+
+omweather (0.4-public1) quantal; urgency=low
+
+  * New release.
+
+ -- Vadim Lopatyuk <qnub.ru@gmail.com>  Tue, 15 Jan 2013 17:01:34 +0700
+
 omweather (0.4) quantal; urgency=low
 
   [ Vadim Lopatyuk ]
